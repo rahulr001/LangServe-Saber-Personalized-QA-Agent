@@ -1,7 +1,9 @@
 import uvicorn
 from fastapi import FastAPI
 from langserve import add_routes
-from app.generator import generator
+from core.app.llm.generator import generator
+from core.app.api.schemas import UserRegisterSchema
+from core.app.api.controllers import CoreController
 
 app = FastAPI(
     title="Langchain Server",
@@ -17,6 +19,9 @@ add_routes(
 )
 
 
+@app.post('/register', response_description='User Registeration')
+def register(params: UserRegisterSchema):
+    return CoreController().register(params)
 
 
 if __name__ == '__main__':
