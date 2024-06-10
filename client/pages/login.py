@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.set_option("client.showSidebarNavigation", False)
+
 
 def login():
     if st.session_state.get('is_registered'):

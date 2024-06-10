@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 vectorstore/
+.vscode/
 # C extensions
 *.so
 
